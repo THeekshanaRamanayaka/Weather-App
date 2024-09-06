@@ -1,5 +1,3 @@
-Weather App - Project Overview
-
 This Weather App is a modern, responsive web application that provides detailed weather information. Built with HTML, CSS, JavaScript, and Bootstrap, it uses external APIs to retrieve live weather data and display it in a user-friendly interface. The app is enhanced with real-time updates, including temperature, humidity, wind speed, and a 10-day forecast.
 
 Key Features:

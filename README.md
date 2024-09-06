@@ -5,22 +5,16 @@ This Weather App is a modern, responsive web application that provides detailed 
 Key Features:
 
 Real-time weather updates based on user location or search.
-
 10-day weather forecast with temperature and condition icons.
-
 Detailed weather metrics: wind speed, humidity, UV index, and precipitation.
-
 Integrated Google Maps for live location visualisation.
-
 Responsive design with Bootstrap for seamless user experience on different devices.
 
 
 Tech Stack:
 
 Frontend: HTML, CSS, Bootstrap 5
-
 JavaScript Libraries: jQuery, Leaflet for maps integration
-
 APIs: OpenWeather API for weather data, Google Maps Embed API
 
 

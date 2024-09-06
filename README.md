@@ -13,8 +13,8 @@ Responsive design with Bootstrap for seamless user experience on different devic
 
 Tech Stack:
 
-Frontend: HTML, CSS, Bootstrap 5
-JavaScript Libraries: jQuery, Leaflet for maps integration
+Frontend: HTML, CSS, Bootstrap 5;
+JavaScript Libraries: jQuery, Leaflet for maps integration;
 APIs: OpenWeather API for weather data, Google Maps Embed API
 
 

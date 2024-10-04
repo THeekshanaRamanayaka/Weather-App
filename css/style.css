@@ -97,7 +97,6 @@ video {
 
 .map-container {
     position: relative;
-    padding-top: 56.25%;
     height: 400px;
     overflow: hidden;
 }

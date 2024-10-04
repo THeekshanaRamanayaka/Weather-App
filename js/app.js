@@ -20,13 +20,20 @@ function startClock(timezone) {
     }, 1000);
 }
 
+document.getElementById('search-btn').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        const location = document.getElementById('searchbar-text').value;
+        fetchWeatherDetails(location);
+    }
+});
+
 document.getElementById('search-btn').addEventListener('click', function() {
     const location = document.getElementById('searchbar-text').value;
     fetchWeatherDetails(location);
 });
 
 function fetchWeatherDetails(location) {
-    const apiKey = '5b4b05e7214f46c5b3444427242708';
+    const apiKey = '8b83314a960b48e2bdd204959240410';
     fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=10`)
     .then(response => response.json())
     .then(data => {
@@ -107,3 +114,46 @@ function fetchCurrentLocationWeather() {
 }
 
 fetchCurrentLocationWeather();
+
+let map;
+
+function initMap() {
+    map = L.map('map').setView([0, 0], 2);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+}
+
+function updateMap(lat, lon, locationName) {
+    if (!map) {
+        initMap();
+    }
+
+    map.setView([lat, lon], 10);
+    L.marker([lat, lon]).addTo(map)
+        .bindPopup(locationName)
+        .openPopup();
+}
+
+document.getElementById('search-btn').addEventListener('click', function() {
+    const location = document.getElementById('searchbar-text').value;
+    fetchWeatherDetails(location);
+});
+
+function fetchWeatherDetails(location) {
+    const apiKey = '8b83314a960b48e2bdd204959240410';
+    fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=10`)
+    .then(response => response.json())
+    .then(data => {
+        updateWeather(data);
+        const timezone = data.location.tz_id;
+        startClock(timezone);
+        updateMap(data.location.lat, data.location.lon, data.location.name);
+    })
+    .catch(error => console.error('Error fetching the weather data:', error));
+}
+
+window.onload = function() {
+    initMap();
+    fetchCurrentLocationWeather();
+};
